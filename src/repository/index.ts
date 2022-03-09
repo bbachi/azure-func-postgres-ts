@@ -1,0 +1,1 @@
+export { PaymentMethodRepository } from './payment-method.repository';

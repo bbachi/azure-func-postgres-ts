@@ -1,0 +1,21 @@
+{
+    "bindings": [
+    
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "route": "payment-method/{id}",
+              "methods": [
+                "delete"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+    ],
+    "scriptFile": "../dist/api-pay-methods-delete/index.js"
+}

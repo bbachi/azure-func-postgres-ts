@@ -1,0 +1,21 @@
+{
+    "bindings": [
+    
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "route": "payment-method",
+              "methods": [
+                "put"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+    ],
+    "scriptFile": "../dist/api-pay-methods-edit/index.js"
+}

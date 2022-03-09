@@ -1,0 +1,17 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "",
+    "PG_USER": "bbpayprovider@bb-pay-provider",
+    "PG_HOST": "bb-pay-provider.postgres.database.azure.com",
+    "PG_DATABASE": "bb-payments",
+    "PG_PASSWORD": "Tester@1234",
+    "PG_PORT": "5432",
+    "PAYMENT_GATEWAY_URL": "https://jsonplaceholder.typicode.com/posts"
+  },
+  "ConnectionStrings": {},
+  "Host": {
+    "CORS": "*"
+  }
+}
