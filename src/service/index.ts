@@ -1,2 +1,1 @@
-export { PaymentMethodService } from './payment-method.service'
-export { PaymentService } from './payment.service'
+export { TaskService } from './task.service'

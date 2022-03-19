@@ -1,1 +1,1 @@
-export { PaymentMethod } from './payment-method.model';
+export { Tasks } from './task.model';

@@ -1,1 +1,1 @@
-export { PaymentMethodRequest } from './payment-method.request'
+export { TaskRequest } from './task.request'

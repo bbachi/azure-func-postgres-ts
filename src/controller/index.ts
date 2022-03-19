@@ -1,2 +1,1 @@
-export { PaymentMethodController } from './payment-method.controller'
-export { PaymentController } from './payment.controller'
+export { TaskController } from './task.controller'

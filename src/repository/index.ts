@@ -1,1 +1,1 @@
-export { PaymentMethodRepository } from './payment-method.repository';
+export { TaskRepository } from './task.repository';

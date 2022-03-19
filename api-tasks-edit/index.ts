@@ -1,15 +1,15 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-import { PaymentMethodController } from '../src/controller';
-import { PaymentMethodRequest } from "../src/request";
+import { TaskController } from '../src/controller';
+import { TaskRequest } from "../src/request";
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
 
-    const request: PaymentMethodRequest = req.body;
-    const paymentMethodController = new PaymentMethodController();
+    const request: TaskRequest = req.body;
+    const taskController = new TaskController();
     let result: any;
     const HEADERS = {'Content-Type': 'application/json'}
     try {
-        result = await paymentMethodController.editPaymentMethod(request.paymentMethod);
+        result = await taskController.updateTask(request.task);
         result.statusCode = 200;
         context.res = {
             body: result,
@@ -17,7 +17,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         };
         
     } catch(ex) {
-        console.log("Exception occurred while logging in --> ", ex);
+        console.log("Exception occurred while editing the task --> ", ex);
         context.res = {
             status: 500,
             body: {message: ex.message},

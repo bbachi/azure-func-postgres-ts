@@ -1,30 +1,37 @@
-import { Pool, Client, PoolClient } from 'pg'
+import { Sequelize } from 'sequelize-typescript'
+import { Tasks } from '../model/task.model';
 
-let poolClient: PoolClient;
+export const connect = () => {
 
-export const connect = async (): Promise<PoolClient> => {
+    const hostName = process.env.PG_HOST;
+    const userName = process.env.PG_USER;
+    const password = process.env.PG_PASSWORD;
+    const database = process.env.PG_DATABASE;
+    const dialect: any = process.env.PG_DIALECT;
 
-    const user = process.env.PG_USER || ""
-    const host = process.env.PG_HOST || ""
-    const database = process.env.PG_DATABASE || ""
-    const password = process.env.PG_PASSWORD || ""
-    const port = process.env.PG_PORT ? parseInt(process.env.PG_PORT) : 5432
+    console.log('dialect  ', dialect)
 
-    try {
+    const operatorsAliases: any = false;
+
+    const sequelize = new Sequelize(database, userName, password, {
+        host: hostName,
+        dialect,
+        operatorsAliases,
+        repositoryMode: true,
+        pool: {
+            max: 10,
+            min: 0,
+            acquire: 20000,
+            idle: 5000
+        }
+    });
+
+    sequelize.addModels([Tasks]);
+
+    const db: any = {};
+    db.Sequelize = Sequelize;
+    db.sequelize = sequelize;
     
-        const pool = new Pool({
-                user,
-                host,
-                database,
-                password,
-                port
-            })
+    return db;
 
-        poolClient = await pool.connect();
-    } catch (err) {
-        console.log(err)
-    }
-
-    return poolClient;
-
-};
+}

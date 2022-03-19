@@ -6,9 +6,9 @@
               "type": "httpTrigger",
               "direction": "in",
               "name": "req",
-              "route": "payment-method/{id}",
+              "route": "task",
               "methods": [
-                "delete"
+                "put"
               ]
             },
             {
@@ -17,5 +17,5 @@
               "name": "res"
             }
     ],
-    "scriptFile": "../dist/api-pay-methods-delete/index.js"
+    "scriptFile": "../dist/api-tasks-edit/index.js"
 }
