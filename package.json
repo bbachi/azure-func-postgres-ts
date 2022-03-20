@@ -1,5 +1,5 @@
 {
-  "name": "bb-pay-provider",
+  "name": "azure-func-postgres",
   "version": "1.0.0",
   "description": "",
   "scripts": {
